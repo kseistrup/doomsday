@@ -1,0 +1,110 @@
+#!/usr/bin/python
+# -*- mode: python; coding: utf-8 -*-
+"""
+usage: doomsday [OPTIONS] [YEAR]
+
+positional arguments:
+  YEAR                  year to find doomsday for (default current year)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show version information and exit
+  -c, --copyright       show copying policy and exit
+  -f FORMAT, --format FORMAT
+                        date format (default ‘%A’: full weekday name)
+"""
+##############################################################################
+# This program is free software; you can redistribute it and/or modify it    #
+# under the terms of the GNU General Public License as published by the Free #
+# Software Foundation; either version 3 of the License, or (at your option)  #
+# any later version.                                                         #
+#                                                                            #
+# This program is distributed in the hope that it will be useful, but with-  #
+# out any warranty; without even the implied warranty of merchantability or  #
+# fitness for a particular purpose.  See the GNU General Public License for  #
+# more details.  <http://gplv3.fsf.org/>                                     #
+##############################################################################
+
+# http://python-future.org/quickstart.html#quickstart-guide
+from __future__ import print_function, unicode_literals
+
+import sys
+import os
+import argparse
+import datetime
+
+from datetime import MINYEAR, MAXYEAR
+
+try:
+    from locale import (setlocale, LC_ALL)
+    _ = setlocale(LC_ALL, '')
+except (ImportError, NameError):
+    pass
+
+__author__ = 'Klaus Alexander Seistrup <klaus@seistrup.dk>'
+__revision__ = '2015-08-15'
+__version__ = '0.0.1 (%s)' % __revision__
+__copyright__ = """\
+doomsday %s
+Copyright © 2015 Klaus Alexander Seistrup <klaus@seistrup.dk>
+
+This is free software; see the source for copying conditions.  There is no
+warranty; not even for merchantability or fitness for a particular purpose.
+
+Fork me on Github: https://github.com/kseistrup/doomsday
+""" % (__version__,)
+
+
+def die(message=None, exit_code=0):
+    """Optionally write a message and exit with an exit code"""
+    if message is not None:
+        print(message, file=sys.stdout if not exit_code else sys.stderr)
+    sys.exit(exit_code != 0)
+
+
+def doomsday(year=None):
+    """Returns last day of february in <year>"""
+    if year is None:
+        year = datetime.date.today().strftime('%Y')
+    if not year.isdigit():
+        die('Invalid year: {0}'.format(year), 1)
+    year = int(year)
+    if year < MINYEAR or year > MAXYEAR:
+        die('Year not in range {0}..{1}'.format(MINYEAR, MAXYEAR), 1)
+
+    try:
+        dday = datetime.date(year, 2, 29)
+    except ValueError:
+        dday = datetime.date(year, 2, 28)
+
+    return dday
+
+
+def main(progname='doomsday'):
+    """Main entry point"""
+
+    parser = argparse.ArgumentParser(
+        prog=progname,
+        formatter_class=argparse.RawTextHelpFormatter
+    )
+    parser.add_argument('-v', '--version', action='version',
+                        version='%(prog)s/' + __version__,
+                        help='show version information and exit')
+    parser.add_argument('-c', '--copyright', action='version',
+                        version=__copyright__,
+                        help='show copying policy and exit')
+    parser.add_argument('-f', '--format', default='%A',
+                        help='date format (default ‘%%A’: full weekday name)')
+    parser.add_argument('YEAR', nargs='?', default=None,
+                        help='year to find doomsday for')
+
+    args = parser.parse_args()
+
+    print(doomsday(args.YEAR).strftime(args.format.strip('"\'')))
+
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main(os.path.basename(sys.argv[0])))
+
+# eof
