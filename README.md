@@ -1,4 +1,4 @@
-# doomsday
+# Doomsday
 
 The [Doomsday Algorithm](http://rudy.ca/doomsday) gives the day of
 the week for any date (and you can do it in your head).
