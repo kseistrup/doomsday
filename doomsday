@@ -4,12 +4,13 @@
 usage: doomsday [OPTIONS] [YEAR]
 
 positional arguments:
-  YEAR                  year to find doomsday for (default current year)
+  YEAR                  year to find doomsday for
 
 optional arguments:
   -h, --help            show this help message and exit
   -v, --version         show version information and exit
   -c, --copyright       show copying policy and exit
+  -r, --reminder        show doomsday algorithm reminder and exit
   -f FORMAT, --format FORMAT
                         date format (default ‘%A’: full weekday name)
 """
@@ -43,7 +44,7 @@ except (ImportError, NameError):
 
 __author__ = 'Klaus Alexander Seistrup <klaus@seistrup.dk>'
 __revision__ = '2015-08-15'
-__version__ = '0.0.1 (%s)' % __revision__
+__version__ = '0.0.2 (%s)' % __revision__
 __copyright__ = """\
 doomsday %s
 Copyright © 2015 Klaus Alexander Seistrup <klaus@seistrup.dk>
@@ -53,6 +54,31 @@ warranty; not even for merchantability or fitness for a particular purpose.
 
 Fork me on Github: https://github.com/kseistrup/doomsday
 """ % (__version__,)
+
+REMINDER = """
+Doomsday is the last day of february — i.e., february 28 in normal years
+and february 29 in leap years.
+
+Even months (april, june, august, october and december): The Nth of month
+N is also a doomsday:
+  · April 4
+  · June 6
+  · August 8
+  · October 10
+  · December 12
+
+Odd months (march, may, july, september, november): Use the mnemonic
+“I work from 9-5 at the 7-Eleven”.
+  · for the 9th month, doomsday is the 5th
+  · for the 5th month, doomsday is the 9th
+  · for the 7th month, doomsday is the 11th
+  · for the 11th month, doomsday is the 7th
+
+January: Doomsday is january 3rd three years out of four, the non-leap
+years, and january 4th only in the fourth year, the years divisible by 4.
+
+For other years and centuries, please consult http://rudy.ca/doomsday
+"""
 
 
 def die(message=None, exit_code=0):
@@ -93,6 +119,9 @@ def main(progname='doomsday'):
     parser.add_argument('-c', '--copyright', action='version',
                         version=__copyright__,
                         help='show copying policy and exit')
+    parser.add_argument('-r', '--reminder', action='version',
+                        version=REMINDER,
+                        help='show doomsday algorithm reminder and exit')
     parser.add_argument('-f', '--format', default='%A',
                         help='date format (default ‘%%A’: full weekday name)')
     parser.add_argument('YEAR', nargs='?', default=None,
