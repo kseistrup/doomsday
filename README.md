@@ -5,6 +5,8 @@ the week for any date (and you can do it in your head).
 
 ## Usage
 
+```sh
+$ doomsday --help
 Usage: doomsday [OPTIONS] [YEAR]
 
 positional arguments:
@@ -17,6 +19,7 @@ optional arguments:
   -r, --reminder        show doomsday algorithm reminder and exit
   -f FORMAT, --format FORMAT
                         date format (default ‘%A’: full weekday name)
+```
 
 ## Examples
 
