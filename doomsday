@@ -34,12 +34,12 @@ import os
 import argparse
 import datetime
 
-from datetime import MINYEAR, MAXYEAR
+from datetime import (MINYEAR, MAXYEAR)
 
 try:
-    from locale import (setlocale, LC_ALL)
+    from locale import (setlocale, LC_ALL, Error)
     _ = setlocale(LC_ALL, '')
-except (ImportError, NameError):
+except (ImportError, NameError, Error):
     pass
 
 __author__ = 'Klaus Alexander Seistrup <klaus@seistrup.dk>'
