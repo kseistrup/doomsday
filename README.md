@@ -1,2 +1,2 @@
 # doomsday
-Get Doomsday for a gived year
+Get Doomsday for a given year
