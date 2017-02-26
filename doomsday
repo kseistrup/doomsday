@@ -1,12 +1,12 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- mode: python; coding: utf-8 -*-
 """
-usage: doomsday [OPTIONS] [YEAR]
+Usage: doomsday [OPTIONS] [YEAR]
 
-positional arguments:
+Positional arguments:
   YEAR                  year to find doomsday for
 
-optional arguments:
+Optional arguments:
   -h, --help            show this help message and exit
   -v, --version         show version information and exit
   -c, --copyright       show copying policy and exit
@@ -47,7 +47,7 @@ __revision__ = '2017-02-26'
 __version__ = '0.0.4 (%s)' % __revision__
 __copyright__ = """\
 doomsday %s
-Copyright © 2015 Klaus Alexander Seistrup <klaus@seistrup.dk>
+Copyright © 2015-2017 Klaus Alexander Seistrup <klaus@seistrup.dk>
 
 This is free software; see the source for copying conditions.  There is no
 warranty; not even for merchantability or fitness for a particular purpose.
@@ -146,6 +146,7 @@ def main(progname='doomsday'):
     print(result)
 
     return 0
+
 
 if __name__ == '__main__':
     sys.exit(main(os.path.basename(sys.argv[0])))
