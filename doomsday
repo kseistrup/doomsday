@@ -43,8 +43,8 @@ except (ImportError, NameError, Error):
     pass
 
 __author__ = 'Klaus Alexander Seistrup <klaus@seistrup.dk>'
-__revision__ = '2015-08-15'
-__version__ = '0.0.3 (%s)' % __revision__
+__revision__ = '2017-02-26'
+__version__ = '0.0.4 (%s)' % __revision__
 __copyright__ = """\
 doomsday %s
 Copyright © 2015 Klaus Alexander Seistrup <klaus@seistrup.dk>
@@ -56,10 +56,10 @@ Fork me on Github: https://github.com/kseistrup/doomsday
 """ % (__version__,)
 
 REMINDER = """
-Doomsday is the last day of february — i.e., february 28 in normal years
-and february 29 in leap years.
+Doomsday is the last day of February — i.e., February 28 in normal years
+and February 29 in leap years.
 
-Even months (april, june, august, october and december): The Nth of month
+Even months (April, June, August, October and December): The Nth of month
 N is also a doomsday:
   · April 4
   · June 6
@@ -67,15 +67,15 @@ N is also a doomsday:
   · October 10
   · December 12
 
-Odd months (march, may, july, september, november): Use the mnemonic
-“I work from 9-5 at the 7-Eleven”.
-  · for the 9th month, doomsday is the 5th
-  · for the 5th month, doomsday is the 9th
-  · for the 7th month, doomsday is the 11th
-  · for the 11th month, doomsday is the 7th
+Odd months (March, May, July, September, November): Use the mnemonic
+“I work from 9-5 at the 7-Eleven”:
+  · for the  9th month, doomsday is the  5th
+  · for the  5th month, doomsday is the  9th
+  · for the  7th month, doomsday is the 11th
+  · for the 11th month, doomsday is the  7th
 
-January: Doomsday is january 3rd three years out of four, the non-leap
-years, and january 4th only in the fourth year, the years divisible by 4.
+January: Doomsday is January 3rd three years out of four, the non-leap
+years, and January 4th only in the fourth year, the years divisible by 4.
 
 For other years and centuries, please consult http://rudy.ca/doomsday
 """
