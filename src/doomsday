@@ -43,11 +43,11 @@ except (ImportError, NameError, Error):
     pass
 
 __author__ = 'Klaus Alexander Seistrup <klaus@seistrup.dk>'
-__revision__ = '2017-02-26'
-__version__ = '0.0.4 (%s)' % __revision__
+__revision__ = '2020-04-07'
+__version__ = '0.0.5 (%s)' % __revision__
 __copyright__ = """\
 doomsday %s
-Copyright © 2015-2017 Klaus Alexander Seistrup <klaus@seistrup.dk>
+Copyright © 2015-2020 Klaus Alexander Seistrup <klaus@seistrup.dk>
 
 This is free software; see the source for copying conditions.  There is no
 warranty; not even for merchantability or fitness for a particular purpose.
@@ -77,7 +77,7 @@ Odd months (March, May, July, September, November): Use the mnemonic
 January: Doomsday is January 3rd three years out of four, the non-leap
 years, and January 4th only in the fourth year, the years divisible by 4.
 
-For other years and centuries, please consult http://rudy.ca/doomsday
+For other years and centuries, please consult https://rudy.ca/doomsday.html
 """
 
 

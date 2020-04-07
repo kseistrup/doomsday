@@ -1,6 +1,6 @@
 # Doomsday
 
-The [Doomsday Algorithm](http://rudy.ca/doomsday) gives the day of
+The [Doomsday Algorithm](https://rudy.ca/doomsday.html) gives the day of
 the week for any date (and you can do it in your head).
 
 ## Usage
