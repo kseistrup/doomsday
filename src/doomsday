@@ -26,9 +26,6 @@ Optional arguments:
 # more details.  <http://gplv3.fsf.org/>                                     #
 ##############################################################################
 
-# http://python-future.org/quickstart.html#quickstart-guide
-from __future__ import print_function, unicode_literals
-
 import sys
 import os
 import argparse
@@ -44,7 +41,7 @@ except (ImportError, NameError, Error):
 
 __author__ = 'Klaus Alexander Seistrup <klaus@seistrup.dk>'
 __revision__ = '2020-04-07'
-__version__ = '0.0.5 (%s)' % __revision__
+__version__ = '0.0.6 (%s)' % __revision__
 __copyright__ = """\
 doomsday %s
 Copyright © 2015-2020 Klaus Alexander Seistrup <klaus@seistrup.dk>
